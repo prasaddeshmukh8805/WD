@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Online Quiz Registration</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:background#f2f2f2;
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            margin-top:40px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 0px 15px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:darkblue;
+            margin-bottom:25px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#333;
+        }
+
+        input,select{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+        }
+
+        input:focus,select:focus{
+            border:1px solid darkblue;
+            outline:none;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:darkblue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#00008b;
+        }
+
+        #result{
+            margin-top:25px;
+            border-radius:8px;
+            padding:15px;
+            background:#f5f5f5;
+            border-left:5px solid darkblue;
+            font-size:16px;
+        }
+
+        #result h3{
+            color:darkblue;
+            text-align:center;
+        }
+
+    </style>
+
+    <script>
+
+        function showDetails()
+        {
+            var name=document.getElementById("name").value;
+
+            var email=document.getElementById("email").value;
+
+            var college=document.getElementById("college").value;
+
+            var quiz=document.getElementById("quiz").value;
+
+            if(name=="" || email=="" || college=="" || quiz=="")
+            {
+                alert("Please fill all fields");
+                return;
+            }
+
+            document.getElementById("result").innerHTML=
+
+            "<h3>Participant Information</h3>"+
+
+            "<p><b>Name :</b> "+name+"</p>"+
+
+            "<p><b>Email :</b> "+email+"</p>"+
+
+            "<p><b>College :</b> "+college+"</p>"+
+
+            "<p><b>Quiz Topic :</b> "+quiz+"</p>";
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Online Quiz Registration</h2>
+
+        <form>
+
+            <label>Participant Name</label>
+
+            <input type="text" id="name" placeholder="Enter Name">
+
+            <label>Email</label>
+
+            <input type="email" id="email" placeholder="Enter Email">
+
+            <label>College Name</label>
+
+            <input type="text" id="college" placeholder="Enter College Name">
+
+            <label>Select Quiz Topic</label>
+
+            <select id="quiz">
+
+                <option value="">Select Topic</option>
+
+                <option>Programming</option>
+
+                <option>Database Management</option>
+
+                <option>Computer Network</option>
+
+                <option>Web Development</option>
+
+            </select>
+
+            <button type="button" onclick="showDetails()">
+                Register
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+    </div>
+
+</body>
+</html>
