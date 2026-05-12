@@ -2,47 +2,34 @@
 <html>
 <head>
 
-    <title>Digital Clock Application</title>
+    <title>Digital Clock</title>
 
     <style>
 
         body{
-            margin:0;
-            padding:0;
             font-family: Arial;
-            background:#0f172a;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
+            background:#f2f2f2;
+            text-align:center;
+            margin-top:150px;
         }
 
-        .clock-container{
+        .clock{
+            width:300px;
+            margin:auto;
             background:white;
-            padding:40px;
-            border-radius:15px;
-            text-align:center;
-            box-shadow:0px 0px 20px gray;
-            width:400px;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
         }
 
         h1{
             color:darkblue;
-            margin-bottom:25px;
         }
 
-        #clock{
-            font-size:50px;
-            color:#0f172a;
-            font-weight:bold;
-            letter-spacing:3px;
+        #time{
+            font-size:40px;
+            color:red;
             margin-top:20px;
-        }
-
-        #date{
-            font-size:22px;
-            color:gray;
-            margin-top:15px;
         }
 
     </style>
@@ -51,55 +38,32 @@
 
 <body>
 
-    <div class="clock-container">
+    <div class="clock">
 
         <h1>Digital Clock</h1>
 
-        <div id="clock"></div>
-
-        <div id="date"></div>
+        <div id="time"></div>
 
     </div>
 
     <script>
 
-        function showTime()
+        function clock()
         {
-            var now=new Date();
+            var d=new Date();
 
-            var hour=now.getHours();
+            var h=d.getHours();
 
-            var minute=now.getMinutes();
+            var m=d.getMinutes();
 
-            var second=now.getSeconds();
+            var s=d.getSeconds();
 
-            var day=now.toDateString();
+            var t=h+":"+m+":"+s;
 
-            if(hour<10)
-            {
-                hour="0"+hour;
-            }
-
-            if(minute<10)
-            {
-                minute="0"+minute;
-            }
-
-            if(second<10)
-            {
-                second="0"+second;
-            }
-
-            var time=hour+":"+minute+":"+second;
-
-            document.getElementById("clock").innerHTML=time;
-
-            document.getElementById("date").innerHTML=day;
+            document.getElementById("time").innerHTML=t;
         }
 
-        setInterval(showTime,1000);
-
-        showTime();
+        setInterval(clock,1000);
 
     </script>
 
