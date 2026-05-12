@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Digital Clock Application</title>
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family: Arial;
+            background:#0f172a;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .clock-container{
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0px 0px 20px gray;
+            width:400px;
+        }
+
+        h1{
+            color:darkblue;
+            margin-bottom:25px;
+        }
+
+        #clock{
+            font-size:50px;
+            color:#0f172a;
+            font-weight:bold;
+            letter-spacing:3px;
+            margin-top:20px;
+        }
+
+        #date{
+            font-size:22px;
+            color:gray;
+            margin-top:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="clock-container">
+
+        <h1>Digital Clock</h1>
+
+        <div id="clock"></div>
+
+        <div id="date"></div>
+
+    </div>
+
+    <script>
+
+        function showTime()
+        {
+            var now=new Date();
+
+            var hour=now.getHours();
+
+            var minute=now.getMinutes();
+
+            var second=now.getSeconds();
+
+            var day=now.toDateString();
+
+            if(hour<10)
+            {
+                hour="0"+hour;
+            }
+
+            if(minute<10)
+            {
+                minute="0"+minute;
+            }
+
+            if(second<10)
+            {
+                second="0"+second;
+            }
+
+            var time=hour+":"+minute+":"+second;
+
+            document.getElementById("clock").innerHTML=time;
+
+            document.getElementById("date").innerHTML=day;
+        }
+
+        setInterval(showTime,1000);
+
+        showTime();
+
+    </script>
+
+</body>
+</html>
