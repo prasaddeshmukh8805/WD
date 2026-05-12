@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVCOE College Information</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1{
+            text-align: center;
+            color: darkblue;
+        }
+
+        .main-table{
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        .main-table, .main-table th, .main-table td{
+            border: 2px solid black;
+        }
+
+        .main-table th, .main-table td{
+            padding: 12px;
+            text-align: center;
+        }
+
+        .nested-table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .nested-table, .nested-table th, .nested-table td{
+            border: 1px solid gray;
+        }
+
+        .nested-table th{
+            background-color: lightblue;
+        }
+
+        img{
+            border-radius: 10px;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: navy;
+        }
+
+        #department{
+            font-size: 22px;
+            color: darkred;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Amrutvahini College of Engineering (AVCOE)</h1>
+
+    <table class="main-table">
+
+        <tr>
+            <th>College Image</th>
+            <th>College Information</th>
+        </tr>
+
+        <tr>
+
+            <td>
+                <img src="https://www.avcoe.org/images/logo.png" width="180" height="180">
+            </td>
+
+            <td>
+
+                <table class="nested-table">
+
+                    <tr>
+                        <th>Information</th>
+                        <th>Details</th>
+                    </tr>
+
+                    <tr>
+                        <td>College Name</td>
+                        <td>Amrutvahini College of Engineering</td>
+                    </tr>
+
+                    <tr>
+                        <td>Course</td>
+                        <td>B.E</td>
+                    </tr>
+
+                    <tr>
+                        <td>Department</td>
+                        <td>Computer Engineering</td>
+                    </tr>
+
+                    <tr>
+                        <td>Location</td>
+                        <td>Sangamner, Maharashtra</td>
+                    </tr>
+
+                    <tr>
+                        <td>Website</td>
+                        <td>
+                            <a href="https://www.avcoe.org" target="_blank">
+                                Visit AVCOE Website
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <a href="mailto:principal@avcoe.org">
+                                principal@avcoe.org
+                            </a>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <div style="text-align:center; margin-top:20px;">
+        <button onclick="showDepartment()">
+            Show Department
+        </button>
+    </div>
+
+    <div id="department"></div>
+
+    <script>
+
+        function showDepartment(){
+
+            document.getElementById("department").innerHTML =
+            "Department Name: Computer Engineering";
+
+        }
+
+    </script>
+
+</body>
+</html>
