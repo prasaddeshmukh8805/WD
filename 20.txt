@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Hostel Registration Form</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            margin-top:40px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:darkblue;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:darkblue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+        }
+
+        table{
+            width:100%;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:darkblue;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+    </style>
+
+    <script>
+
+        function validateForm()
+        {
+            var name=document.getElementById("name").value;
+
+            var mobile=document.getElementById("mobile").value;
+
+            var course=document.getElementById("course").value;
+
+            var room=document.getElementById("room").value;
+
+            if(name=="" || mobile=="" || course=="" || room=="")
+            {
+                alert("Please fill all fields");
+                return false;
+            }
+
+            if(mobile.length!=10)
+            {
+                alert("Enter valid mobile number");
+                return false;
+            }
+
+            alert("Hostel Registration Successful");
+
+            return true;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Hostel Registration Form</h2>
+
+        <form method="post" onsubmit="return validateForm()">
+
+            <label>Student Name</label>
+
+            <input type="text" id="name" name="name" placeholder="Enter Name">
+
+            <label>Mobile Number</label>
+
+            <input type="text" id="mobile" name="mobile" placeholder="Enter Mobile Number">
+
+            <label>Course</label>
+
+            <select id="course" name="course">
+
+                <option value="">Select Course</option>
+
+                <option>Computer Engineering</option>
+
+                <option>Mechanical Engineering</option>
+
+                <option>Civil Engineering</option>
+
+            </select>
+
+            <label>Room Type</label>
+
+            <select id="room" name="room">
+
+                <option value="">Select Room Type</option>
+
+                <option>Single Room</option>
+
+                <option>Double Sharing</option>
+
+                <option>Triple Sharing</option>
+
+            </select>
+
+            <button type="submit" name="submit">
+                Register
+            </button>
+
+        </form>
+
+        <?php
+
+        if(isset($_POST['submit']))
+        {
+
+            $name=$_POST['name'];
+
+            $mobile=$_POST['mobile'];
+
+            $course=$_POST['course'];
+
+            $room=$_POST['room'];
+
+            echo "
+
+            <table>
+
+                <tr>
+                    <th>Field</th>
+                    <th>Room Allocation Details</th>
+                </tr>
+
+                <tr>
+                    <td>Student Name</td>
+                    <td>$name</td>
+                </tr>
+
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>$mobile</td>
+                </tr>
+
+                <tr>
+                    <td>Course</td>
+                    <td>$course</td>
+                </tr>
+
+                <tr>
+                    <td>Allocated Room</td>
+                    <td>$room</td>
+                </tr>
+
+            </table>
+
+            ";
+
+        }
+
+        ?>
+
+    </div>
+
+</body>
+</html>
