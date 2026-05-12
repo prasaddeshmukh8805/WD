@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Tourism Webpage</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:950px;
+            margin:auto;
+            margin-top:30px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkblue;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:darkblue;
+            color:white;
+        }
+
+        th,td{
+            padding:12px;
+            text-align:center;
+        }
+
+        img{
+            width:170px;
+            height:120px;
+            border-radius:10px;
+        }
+
+        a{
+            text-decoration:none;
+            color:blue;
+            font-weight:bold;
+        }
+
+        select{
+            width:100%;
+            padding:10px;
+            margin-top:20px;
+            margin-bottom:15px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:darkblue;
+            color:white;
+            border:none;
+            font-size:16px;
+            border-radius:5px;
+        }
+
+        #result{
+            margin-top:20px;
+            padding:20px;
+            border:1px solid black;
+            background:#f9f9f9;
+            text-align:center;
+            font-size:18px;
+        }
+
+    </style>
+
+    <script>
+
+        function showPlace()
+        {
+            var place=document.getElementById("place").value;
+
+            var details="";
+
+            if(place=="Taj Mahal")
+            {
+                details="Taj Mahal is located in Agra and is one of the Seven Wonders of the World.";
+            }
+
+            else if(place=="India Gate")
+            {
+                details="India Gate is a famous war memorial located in New Delhi.";
+            }
+
+            else if(place=="Gateway of India")
+            {
+                details="Gateway of India is a popular tourist place located in Mumbai.";
+            }
+
+            else if(place=="Red Fort")
+            {
+                details="Red Fort is a historical fort located in Delhi.";
+            }
+
+            else if(place=="Charminar")
+            {
+                details="Charminar is a famous monument located in Hyderabad.";
+            }
+
+            document.getElementById("result").innerHTML=
+
+            "<h3>Tourist Place Information</h3>" +
+
+            "<p><b>Selected Place :</b> " + place + "</p>" +
+
+            "<p>" + details + "</p>";
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Tourism Webpage</h1>
+
+        <table>
+
+            <tr>
+                <th>Place Image</th>
+                <th>Tourist Place</th>
+                <th>Location</th>
+                <th>Visit Link</th>
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg">
+                </td>
+
+                <td>Taj Mahal</td>
+
+                <td>Agra</td>
+
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank">
+                        Visit
+                    </a>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/India_Gate_in_New_Delhi_03-2016.jpg">
+                </td>
+
+                <td>India Gate</td>
+
+                <td>Delhi</td>
+
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/India_Gate" target="_blank">
+                        Visit
+                    </a>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Gateway_of_India_Mumbai.jpg">
+                </td>
+
+                <td>Gateway of India</td>
+
+                <td>Mumbai</td>
+
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Gateway_of_India" target="_blank">
+                        Visit
+                    </a>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Red_Fort_in_Delhi_03-2016.jpg">
+                </td>
+
+                <td>Red Fort</td>
+
+                <td>Delhi</td>
+
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Red_Fort" target="_blank">
+                        Visit
+                    </a>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Charminar-Pride_of_Hyderabad.jpg">
+                </td>
+
+                <td>Charminar</td>
+
+                <td>Hyderabad</td>
+
+                <td>
+                    <a href="https://en.wikipedia.org/wiki/Charminar" target="_blank">
+                        Visit
+                    </a>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <h1>Select Tourist Place</h1>
+
+        <select id="place">
+
+            <option>Taj Mahal</option>
+
+            <option>India Gate</option>
+
+            <option>Gateway of India</option>
+
+            <option>Red Fort</option>
+
+            <option>Charminar</option>
+
+        </select>
+
+        <button onclick="showPlace()">
+            Display Place Information
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+</body>
+</html>
