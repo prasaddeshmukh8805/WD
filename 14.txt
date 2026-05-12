@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Restaurant Menu Webpage</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:850px;
+            margin:auto;
+            margin-top:30px;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        h2{
+            text-align:center;
+            color:darkred;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:darkred;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        img{
+            width:120px;
+            height:100px;
+            border-radius:10px;
+        }
+
+        a{
+            text-decoration:none;
+            color:blue;
+        }
+
+        ul{
+            margin-top:20px;
+        }
+
+        li{
+            padding:5px;
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Restaurant Menu</h2>
+
+        <table>
+
+            <tr>
+                <th>Food Image</th>
+                <th>Food Name</th>
+                <th>Price</th>
+                <th>Order Link</th>
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+                </td>
+
+                <td>Pizza</td>
+
+                <td>250</td>
+
+                <td>
+                    <a href="https://www.zomato.com" target="_blank">
+                        Order Now
+                    </a>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e">
+                </td>
+
+                <td>Burger</td>
+
+                <td>150</td>
+
+                <td>
+                    <a href="https://www.swiggy.com" target="_blank">
+                        Order Now
+                    </a>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+                </td>
+
+                <td>Pasta</td>
+
+                <td>200</td>
+
+                <td>
+                    <a href="https://www.zomato.com" target="_blank">
+                        Order Now
+                    </a>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <h2>Menu Items Using PHP Array</h2>
+
+        <?php
+
+        $menu=array("Pizza","Burger","Pasta","Sandwich","French Fries");
+
+        echo "<ul>";
+
+        foreach($menu as $item)
+        {
+            echo "<li>".$item."</li>";
+        }
+
+        echo "</ul>";
+
+        ?>
+
+    </div>
+
+</body>
+</html>
