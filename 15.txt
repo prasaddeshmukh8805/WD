@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Gym Membership Registration</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#e8f5e9;
+        }
+
+        .container{
+            width:550px;
+            margin:auto;
+            margin-top:30px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 0px 15px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:darkgreen;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:18px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+        }
+
+        input:focus,select:focus{
+            border:1px solid darkgreen;
+            outline:none;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:darkgreen;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:17px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:green;
+        }
+
+        table{
+            width:100%;
+            margin-top:25px;
+            border-collapse:collapse;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:darkgreen;
+            color:white;
+        }
+
+        th,td{
+            padding:12px;
+            text-align:center;
+        }
+
+        .plans{
+            margin-top:25px;
+        }
+
+    </style>
+
+    <script>
+
+        function validateForm()
+        {
+            var name=document.getElementById("name").value;
+
+            var email=document.getElementById("email").value;
+
+            var mobile=document.getElementById("mobile").value;
+
+            var plan=document.getElementById("plan").value;
+
+            if(name=="" || email=="" || mobile=="" || plan=="")
+            {
+                alert("Please fill all fields");
+                return false;
+            }
+
+           if(email.indexOf("@")==-1)
+   {
+               alert("Enter valid email");
+           return false;
+     }
+
+            if(mobile.length!=10)
+            {
+                alert("Enter valid mobile number");
+                return false;
+            }
+
+            alert("Gym Membership Registered Successfully");
+
+            return true;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Gym Membership Registration</h1>
+
+        <form method="post" onsubmit="return validateForm()">
+
+            <label>Member Name</label>
+
+            <input type="text" id="name" name="name" placeholder="Enter Full Name">
+
+            <label>Email Address</label>
+
+            <input type="text" id="email" name="email" placeholder="Enter Email">
+
+            <label>Mobile Number</label>
+
+            <input type="text" id="mobile" name="mobile" placeholder="Enter Mobile Number">
+
+            <label>Select Membership Plan</label>
+
+            <select id="plan" name="plan">
+
+                <option value="">Select Plan</option>
+
+                <option>Monthly Plan</option>
+
+                <option>Quarterly Plan</option>
+
+                <option>Half Yearly Plan</option>
+
+                <option>Yearly Plan</option>
+
+            </select>
+
+            <button type="submit" name="submit">
+                Join Gym
+            </button>
+
+        </form>
+
+        <div class="plans">
+
+        <?php
+
+        $plans=array(
+        "Monthly Plan",
+        "Quarterly Plan",
+        "Half Yearly Plan",
+        "Yearly Plan"
+        );
+
+        echo "
+
+        <table>
+
+            <tr>
+                <th>Available Membership Plans</th>
+            </tr>
+
+        ";
+
+        foreach($plans as $p)
+        {
+            echo "
+
+            <tr>
+                <td>$p</td>
+            </tr>
+
+            ";
+        }
+
+        echo "</table>";
+
+        if(isset($_POST['submit']))
+        {
+
+            $name=$_POST['name'];
+
+            $email=$_POST['email'];
+
+            $mobile=$_POST['mobile'];
+
+            $plan=$_POST['plan'];
+
+            echo "
+
+            <table>
+
+                <tr>
+                    <th>Field</th>
+                    <th>Member Details</th>
+                </tr>
+
+                <tr>
+                    <td>Name</td>
+                    <td>$name</td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>$email</td>
+                </tr>
+
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>$mobile</td>
+                </tr>
+
+                <tr>
+                    <td>Membership Plan</td>
+                    <td>$plan</td>
+                </tr>
+
+            </table>
+
+            ";
+        }
+
+        ?>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
