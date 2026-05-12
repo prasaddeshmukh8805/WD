@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Registration Form</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#e6e6e6;
+        }
+
+        .container{
+            width:400px;
+            margin:auto;
+            margin-top:40px;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        h2{
+            text-align:center;
+            color:darkblue;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:darkblue;
+            color:white;
+            border:none;
+        }
+
+        table{
+            width:100%;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+    </style>
+
+    <script>
+
+        function validate()
+        {
+            var name = document.forms["empForm"]["name"].value;
+            var email = document.forms["empForm"]["email"].value;
+            var department = document.forms["empForm"]["department"].value;
+            var salary = document.forms["empForm"]["salary"].value;
+
+            if(name=="" || email=="" || department=="" || salary=="")
+            {
+                alert("Please fill all fields");
+                return false;
+            }
+
+            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if(!email.match(pattern))
+            {
+                alert("Enter valid email");
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Employee Registration</h2>
+
+        <form name="empForm" method="post" onsubmit="return validate()">
+
+            <input type="text" name="name" placeholder="Enter Employee Name">
+
+            <input type="text" name="email" placeholder="Enter Email">
+
+            <input type="text" name="department" placeholder="Enter Department">
+
+            <input type="text" name="salary" placeholder="Enter Salary">
+
+            <button type="submit" name="submit">Register</button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
+
+<?php
+
+$name = "";
+$email = "";
+$department = "";
+$salary = "";
+
+if(isset($_POST['submit']))
+{
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $department = $_POST['department'];
+    $salary = $_POST['salary'];
+
+    echo "
+
+    <center>
+
+    <table width='400' cellpadding='10'>
+
+        <tr>
+            <th>Field</th>
+            <th>Employee Details</th>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>$name</td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td>$email</td>
+        </tr>
+
+        <tr>
+            <td>Department</td>
+            <td>$department</td>
+        </tr>
+
+        <tr>
+            <td>Salary</td>
+            <td>$salary</td>
+        </tr>
+
+    </table>
+
+    </center>
+
+    ";
+}
+
+?>
