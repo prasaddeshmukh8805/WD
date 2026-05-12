@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Banking Customer Information Form</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:500px;
+            margin:auto;
+            margin-top:40px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+        }
+
+        h2{
+            text-align:center;
+            color:darkblue;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:darkblue;
+            color:white;
+            border:none;
+            font-size:16px;
+        }
+
+        table{
+            width:100%;
+            margin-top:20px;
+            border-collapse:collapse;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        #result{
+            text-align:center;
+            margin-top:15px;
+            font-size:20px;
+            color:darkred;
+        }
+
+    </style>
+
+    <script>
+
+        function validateForm()
+        {
+            var name=document.getElementById("name").value;
+
+            var account=document.getElementById("account").value;
+
+            var amount=document.getElementById("amount").value;
+
+            var years=document.getElementById("years").value;
+
+            if(name=="" || account=="" || amount=="" || years=="")
+            {
+                alert("Please fill all fields");
+                return false;
+            }
+
+            if(account.length!=10)
+            {
+                alert("Enter valid account number");
+                return false;
+            }
+
+            alert("Form Submitted Successfully");
+
+            return true;
+        }
+
+        function calculateInterest()
+        {
+            var amount=document.getElementById("amount").value;
+
+            var years=document.getElementById("years").value;
+
+            var interest=(amount*5*years)/100;
+
+            document.getElementById("result").innerHTML=
+            "Interest = " + interest;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Banking Customer Information Form</h2>
+
+        <form method="post" onsubmit="return validateForm()">
+
+            <label>Customer Name</label>
+
+            <input type="text" id="name" name="name" placeholder="Enter Name">
+
+            <label>Account Number</label>
+
+            <input type="text" id="account" name="account" placeholder="Enter Account Number">
+
+            <label>Loan Amount</label>
+
+            <input type="number" id="amount" name="amount" placeholder="Enter Amount">
+
+            <label>Years</label>
+
+            <input type="number" id="years" name="years" placeholder="Enter Years">
+
+            <button type="button" onclick="calculateInterest()">
+                Calculate Interest
+            </button>
+
+            <div id="result"></div>
+
+            <br>
+
+            <button type="submit" name="submit">
+                Submit
+            </button>
+
+        </form>
+
+        <?php
+
+        if(isset($_POST['submit']))
+        {
+
+            $name=$_POST['name'];
+
+            $account=$_POST['account'];
+
+            $amount=$_POST['amount'];
+
+            $years=$_POST['years'];
+
+            $interest=($amount*5*$years)/100;
+
+            echo "
+
+            <table>
+
+                <tr>
+                    <th>Field</th>
+                    <th>Details</th>
+                </tr>
+
+                <tr>
+                    <td>Name</td>
+                    <td>$name</td>
+                </tr>
+
+                <tr>
+                    <td>Account Number</td>
+                    <td>$account</td>
+                </tr>
+
+                <tr>
+                    <td>Loan Amount</td>
+                    <td>$amount</td>
+                </tr>
+
+                <tr>
+                    <td>Years</td>
+                    <td>$years</td>
+                </tr>
+
+                <tr>
+                    <td>Interest</td>
+                    <td>$interest</td>
+                </tr>
+
+            </table>
+
+            ";
+
+        }
+
+        ?>
+
+    </div>
+
+</body>
+</html>
