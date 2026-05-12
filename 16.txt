@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Movie Booking Webpage</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:850px;
+            margin:auto;
+            margin-top:30px;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+        }
+
+        h2{
+            text-align:center;
+            color:darkred;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:darkred;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        .nested{
+            width:100%;
+        }
+
+        input,select{
+            width:100%;
+            padding:10px;
+            margin-top:8px;
+            margin-bottom:15px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:darkred;
+            color:white;
+            border:none;
+            font-size:16px;
+        }
+
+    </style>
+
+    <script>
+
+        function validateForm()
+        {
+            var name=document.getElementById("name").value;
+
+            var movie=document.getElementById("movie").value;
+
+            var seats=document.getElementById("seats").value;
+
+            if(name=="" || movie=="" || seats=="")
+            {
+                alert("Please fill all fields");
+                return false;
+            }
+
+            alert("Movie Ticket Booked Successfully");
+
+            return true;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Movie Show Details</h2>
+
+        <table>
+
+            <tr>
+                <th>Movie Name</th>
+                <th>Show Details</th>
+            </tr>
+
+            <tr>
+
+                <td>Avengers</td>
+
+                <td>
+
+                    <table class="nested">
+
+                        <tr>
+                            <th>Time</th>
+                            <th>Screen</th>
+                        </tr>
+
+                        <tr>
+                            <td>10:00 AM</td>
+                            <td>Screen 1</td>
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>KGF 2</td>
+
+                <td>
+
+                    <table class="nested">
+
+                        <tr>
+                            <th>Time</th>
+                            <th>Screen</th>
+                        </tr>
+
+                        <tr>
+                            <td>1:00 PM</td>
+                            <td>Screen 2</td>
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Pushpa</td>
+
+                <td>
+
+                    <table class="nested">
+
+                        <tr>
+                            <th>Time</th>
+                            <th>Screen</th>
+                        </tr>
+
+                        <tr>
+                            <td>6:00 PM</td>
+                            <td>Screen 3</td>
+                        </tr>
+
+                    </table>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+        <h2>Movie Ticket Booking</h2>
+
+        <form method="post" onsubmit="return validateForm()">
+
+            <label>Customer Name</label>
+
+            <input type="text" id="name" name="name" placeholder="Enter Name">
+
+            <label>Select Movie</label>
+
+            <select id="movie" name="movie">
+
+                <option value="">Select Movie</option>
+
+                <option>Avengers</option>
+
+                <option>KGF 2</option>
+
+                <option>Pushpa</option>
+
+            </select>
+
+            <label>Number of Seats</label>
+
+            <input type="number" id="seats" name="seats" placeholder="Enter Seats">
+
+            <button type="submit" name="submit">
+                Book Ticket
+            </button>
+
+        </form>
+
+        <?php
+
+        if(isset($_POST['submit']))
+        {
+
+            $name=$_POST['name'];
+
+            $movie=$_POST['movie'];
+
+            $seats=$_POST['seats'];
+
+            echo "
+
+            <table>
+
+                <tr>
+                    <th>Field</th>
+                    <th>Booking Details</th>
+                </tr>
+
+                <tr>
+                    <td>Customer Name</td>
+                    <td>$name</td>
+                </tr>
+
+                <tr>
+                    <td>Movie Name</td>
+                    <td>$movie</td>
+                </tr>
+
+                <tr>
+                    <td>Seats</td>
+                    <td>$seats</td>
+                </tr>
+
+            </table>
+
+            ";
+
+        }
+
+        ?>
+
+    </div>
+
+</body>
+</html>
