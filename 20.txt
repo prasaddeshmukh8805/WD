@@ -35,8 +35,6 @@
             padding:10px;
             margin-top:8px;
             margin-bottom:15px;
-            border:1px solid #ccc;
-            border-radius:5px;
         }
 
         button{
@@ -45,7 +43,6 @@
             background:darkblue;
             color:white;
             border:none;
-            border-radius:5px;
             font-size:16px;
         }
 
@@ -75,21 +72,23 @@
 
         function validateForm()
         {
-            var name=document.getElementById("name").value;
+            let name = document.getElementById("name").value;
 
-            var mobile=document.getElementById("mobile").value;
+            let mobile = document.getElementById("mobile").value;
 
-            var course=document.getElementById("course").value;
+            let course = document.getElementById("course").value;
 
-            var room=document.getElementById("room").value;
+            let room = document.getElementById("room").value;
 
-            if(name=="" || mobile=="" || course=="" || room=="")
+            let roomno = document.getElementById("roomno").value;
+
+            if(name == "" || mobile == "" || course == "" || room == "" || roomno == "")
             {
                 alert("Please fill all fields");
                 return false;
             }
 
-            if(mobile.length!=10)
+            if(mobile.length != 10)
             {
                 alert("Enter valid mobile number");
                 return false;
@@ -113,44 +112,31 @@
         <form method="post" onsubmit="return validateForm()">
 
             <label>Student Name</label>
-
-            <input type="text" id="name" name="name" placeholder="Enter Name">
+            <input type="text" id="name" name="name">
 
             <label>Mobile Number</label>
-
-            <input type="text" id="mobile" name="mobile" placeholder="Enter Mobile Number">
+            <input type="text" id="mobile" name="mobile">
 
             <label>Course</label>
-
             <select id="course" name="course">
-
                 <option value="">Select Course</option>
-
                 <option>Computer Engineering</option>
-
                 <option>Mechanical Engineering</option>
-
                 <option>Civil Engineering</option>
-
             </select>
 
             <label>Room Type</label>
-
             <select id="room" name="room">
-
                 <option value="">Select Room Type</option>
-
                 <option>Single Room</option>
-
                 <option>Double Sharing</option>
-
                 <option>Triple Sharing</option>
-
             </select>
 
-            <button type="submit" name="submit">
-                Register
-            </button>
+            <label>Room No</label>
+            <input type="text" id="roomno" name="roomno">
+
+            <button type="submit" name="submit">Register</button>
 
         </form>
 
@@ -159,13 +145,11 @@
         if(isset($_POST['submit']))
         {
 
-            $name=$_POST['name'];
-
-            $mobile=$_POST['mobile'];
-
-            $course=$_POST['course'];
-
-            $room=$_POST['room'];
+            $name = $_POST['name'];
+            $mobile = $_POST['mobile'];
+            $course = $_POST['course'];
+            $room = $_POST['room'];
+            $roomno = $_POST['roomno'];
 
             echo "
 
@@ -192,8 +176,13 @@
                 </tr>
 
                 <tr>
-                    <td>Allocated Room</td>
+                    <td>Room Type</td>
                     <td>$room</td>
+                </tr>
+
+                <tr>
+                    <td>Room No</td>
+                    <td>$roomno</td>
                 </tr>
 
             </table>
