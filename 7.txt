@@ -74,31 +74,30 @@
 
         function calculateFine()
         {
-            var days=document.getElementById("days").value;
+            let days = document.getElementById("days").value;
+            let type = document.getElementById("booktype").value;
 
-            var type=document.getElementById("booktype").value;
-
-            var fine=0;
+            let fine = 0;
 
             switch(type)
             {
                 case "Story":
-                    fine=days*2;
+                    fine = days * 2;
                     break;
 
                 case "Programming":
-                    fine=days*5;
+                    fine = days * 5;
                     break;
 
                 case "Science":
-                    fine=days*3;
+                    fine = days * 3;
                     break;
 
                 default:
-                    fine=0;
+                    fine = 0;
             }
 
-            document.getElementById("result").innerHTML=
+            document.getElementById("result").innerHTML =
             "Total Fine = Rs. " + fine;
         }
 
@@ -108,80 +107,59 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h2>Library Management System</h2>
+    <h2>Library Management System</h2>
 
-        <table>
+    <table>
 
-            <tr>
-                <th>Book Image</th>
-                <th>Book Name</th>
-                <th>Author</th>
-                <th>Category</th>
-            </tr>
+        <tr>
+            <th>Book Image</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Category</th>
+        </tr>
 
-            <tr>
-                <td>
-                    <img src="https://m.media-amazon.com/images/I/81gepf1eMqL.jpg">
-                </td>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/81gepf1eMqL.jpg"></td>
+            <td>Java Programming</td>
+            <td>Herbert Schildt</td>
+            <td>Programming</td>
+        </tr>
 
-                <td>Java Programming</td>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg"></td>
+            <td>Science World</td>
+            <td>Stephen Hawking</td>
+            <td>Science</td>
+        </tr>
 
-                <td>Herbert Schildt</td>
+        <tr>
+            <td><img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg"></td>
+            <td>Story Book</td>
+            <td>Ruskin Bond</td>
+            <td>Story</td>
+        </tr>
 
-                <td>Programming</td>
-            </tr>
+    </table>
 
-            <tr>
-                <td>
-                    <img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg">
-                </td>
+    <h2>Book Fine Calculator</h2>
 
-                <td>Science World</td>
+    <label>Enter Late Days</label>
+    <input type="number" id="days" placeholder="Enter Number of Days">
 
-                <td>Stephen Hawking</td>
+    <label>Select Book Type</label>
+    <select id="booktype">
+        <option>Story</option>
+        <option>Programming</option>
+        <option>Science</option>
+    </select>
 
-                <td>Science</td>
-            </tr>
+    <button onclick="calculateFine()">Calculate Fine</button>
 
-            <tr>
-                <td>
-                    <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.jpg">
-                </td>
+    <div id="result"></div>
 
-                <td>Story Book</td>
-
-                <td>Ruskin Bond</td>
-
-                <td>Story</td>
-            </tr>
-
-        </table>
-
-        <h2>Book Fine Calculator</h2>
-
-        <label>Enter Late Days</label>
-
-        <input type="number" id="days" placeholder="Enter Number of Days">
-
-        <label>Select Book Type</label>
-
-        <select id="booktype">
-
-            <option>Story</option>
-
-            <option>Programming</option>
-
-            <option>Science</option>
-
-        </select>
-
-        <button onclick="calculateFine()">Calculate Fine</button>
-
-        <div id="result"></div>
-
-    </div>
+</div>
 
 </body>
 </html>
