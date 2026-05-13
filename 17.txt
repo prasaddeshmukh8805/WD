@@ -88,43 +88,42 @@
 
     </style>
 
-    <script>
+   <script>
 
-        function validateForm()
+    function validateForm()
+    {
+        let name=document.getElementById("name").value;
+
+        let email=document.getElementById("email").value;
+
+        let mobile=document.getElementById("mobile").value;
+
+        let city=document.getElementById("city").value;
+
+        if(name=="" || email=="" || mobile=="" || city=="")
         {
-            var name=document.getElementById("name").value;
-
-            var email=document.getElementById("email").value;
-
-            var mobile=document.getElementById("mobile").value;
-
-            var city=document.getElementById("city").value;
-
-            if(name=="" || email=="" || mobile=="" || city=="")
-            {
-                alert("Please fill all fields");
-                return false;
-            }
-
-            if(email.indexOf("@")==-1)
-            {
-                alert("Enter valid email");
-                return false;
-            }
-
-            if(mobile.length!=10)
-            {
-                alert("Enter valid mobile number");
-                return false;
-            }
-
-            alert("Registration Successful");
-
-            return true;
+            alert("Please fill all fields");
+            return false;
         }
 
-    </script>
+        if(email.indexOf("@")==-1)
+        {
+            alert("Enter valid email");
+            return false;
+        }
 
+        if(mobile.length!=10)
+        {
+            alert("Enter valid mobile number");
+            return false;
+        }
+
+        alert("Registration Successful");
+
+        return true;
+    }
+
+</script>
 </head>
 
 <body>
