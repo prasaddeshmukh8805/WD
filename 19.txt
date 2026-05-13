@@ -91,41 +91,38 @@
 
         function showPlace()
         {
-            var place=document.getElementById("place").value;
+            let place = document.getElementById("place").value;
 
-            var details="";
+            let details = "";
 
-            if(place=="Taj Mahal")
+            if(place == "Taj Mahal")
             {
-                details="Taj Mahal is located in Agra and is one of the Seven Wonders of the World.";
+                details = "Taj Mahal is located in Agra and is one of the Seven Wonders of the World.";
             }
 
-            else if(place=="India Gate")
+            else if(place == "India Gate")
             {
-                details="India Gate is a famous war memorial located in New Delhi.";
+                details = "India Gate is a famous war memorial located in New Delhi.";
             }
 
-            else if(place=="Gateway of India")
+            else if(place == "Gateway of India")
             {
-                details="Gateway of India is a popular tourist place located in Mumbai.";
+                details = "Gateway of India is a popular tourist place located in Mumbai.";
             }
 
-            else if(place=="Red Fort")
+            else if(place == "Red Fort")
             {
-                details="Red Fort is a historical fort located in Delhi.";
+                details = "Red Fort is a historical fort located in Delhi.";
             }
 
-            else if(place=="Charminar")
+            else if(place == "Charminar")
             {
-                details="Charminar is a famous monument located in Hyderabad.";
+                details = "Charminar is a famous monument located in Hyderabad.";
             }
 
-            document.getElementById("result").innerHTML=
-
+            document.getElementById("result").innerHTML =
             "<h3>Tourist Place Information</h3>" +
-
             "<p><b>Selected Place :</b> " + place + "</p>" +
-
             "<p>" + details + "</p>";
         }
 
@@ -149,93 +146,38 @@
             </tr>
 
             <tr>
-
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg">
-                </td>
-
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg"></td>
                 <td>Taj Mahal</td>
-
                 <td>Agra</td>
-
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank">
-                        Visit
-                    </a>
-                </td>
-
+                <td><a href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank">Visit</a></td>
             </tr>
 
             <tr>
-
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/India_Gate_in_New_Delhi_03-2016.jpg">
-                </td>
-
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/India_Gate_in_New_Delhi_03-2016.jpg"></td>
                 <td>India Gate</td>
-
                 <td>Delhi</td>
-
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/India_Gate" target="_blank">
-                        Visit
-                    </a>
-                </td>
-
+                <td><a href="https://en.wikipedia.org/wiki/India_Gate" target="_blank">Visit</a></td>
             </tr>
 
             <tr>
-
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Gateway_of_India_Mumbai.jpg">
-                </td>
-
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Gateway_of_India_Mumbai.jpg"></td>
                 <td>Gateway of India</td>
-
                 <td>Mumbai</td>
-
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Gateway_of_India" target="_blank">
-                        Visit
-                    </a>
-                </td>
-
+                <td><a href="https://en.wikipedia.org/wiki/Gateway_of_India" target="_blank">Visit</a></td>
             </tr>
 
             <tr>
-
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Red_Fort_in_Delhi_03-2016.jpg">
-                </td>
-
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Red_Fort_in_Delhi_03-2016.jpg"></td>
                 <td>Red Fort</td>
-
                 <td>Delhi</td>
-
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Red_Fort" target="_blank">
-                        Visit
-                    </a>
-                </td>
-
+                <td><a href="https://en.wikipedia.org/wiki/Red_Fort" target="_blank">Visit</a></td>
             </tr>
 
             <tr>
-
-                <td>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Charminar-Pride_of_Hyderabad.jpg">
-                </td>
-
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Charminar-Pride_of_Hyderabad.jpg"></td>
                 <td>Charminar</td>
-
                 <td>Hyderabad</td>
-
-                <td>
-                    <a href="https://en.wikipedia.org/wiki/Charminar" target="_blank">
-                        Visit
-                    </a>
-                </td>
-
+                <td><a href="https://en.wikipedia.org/wiki/Charminar" target="_blank">Visit</a></td>
             </tr>
 
         </table>
@@ -245,13 +187,9 @@
         <select id="place">
 
             <option>Taj Mahal</option>
-
             <option>India Gate</option>
-
             <option>Gateway of India</option>
-
             <option>Red Fort</option>
-
             <option>Charminar</option>
 
         </select>
