@@ -20,13 +20,11 @@
             background:white;
             padding:30px;
             border-radius:15px;
-            box-shadow:0px 0px 15px gray;
         }
 
         h1{
             text-align:center;
             color:darkblue;
-            margin-bottom:25px;
         }
 
         .taskbox{
@@ -36,78 +34,44 @@
 
         input{
             flex:1;
-            padding:12px;
-            border:1px solid #ccc;
-            border-radius:5px;
-            font-size:16px;
+            padding:10px;
         }
 
-        input:focus{
-            outline:none;
-            border:1px solid darkblue;
-        }
-
-        .addbtn{
+        button{
+            padding:10px;
             background:darkgreen;
             color:white;
             border:none;
-            padding:12px 18px;
-            border-radius:5px;
-            font-size:16px;
             cursor:pointer;
-        }
-
-        .addbtn:hover{
-            background:green;
         }
 
         ul{
             list-style:none;
             padding:0;
-            margin-top:25px;
+            margin-top:20px;
         }
 
         li{
             background:#f9f9f9;
-            padding:15px;
-            margin-top:15px;
-            border-radius:8px;
+            padding:10px;
+            margin-top:10px;
             display:flex;
             justify-content:space-between;
-            align-items:center;
-            border-left:6px solid darkblue;
-            box-shadow:0px 0px 5px lightgray;
-        }
-
-        .tasktext{
-            font-size:18px;
-            color:#333;
-        }
-
-        .buttons button{
-            border:none;
-            padding:8px 14px;
-            color:white;
-            border-radius:5px;
-            margin-left:8px;
-            cursor:pointer;
-            font-size:14px;
         }
 
         .update{
             background:orange;
-        }
-
-        .update:hover{
-            background:darkorange;
+            color:white;
+            border:none;
+            margin-right:5px;
+            cursor:pointer;
         }
 
         .delete{
             background:red;
-        }
-
-        .delete:hover{
-            background:darkred;
+            color:white;
+            border:none;
+            cursor:pointer;
         }
 
     </style>
@@ -116,89 +80,78 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>To-Do List Application</h1>
+    <h1>To-Do List</h1>
 
-        <div class="taskbox">
+    <div class="taskbox">
 
-            <input type="text" id="task" placeholder="Enter Your Task">
+        <input type="text" id="task" placeholder="Enter task">
 
-            <button class="addbtn" onclick="addTask()">
-                Add Task
-            </button>
-
-        </div>
-
-        <ul id="taskList"></ul>
+        <button onclick="addTask()">Add</button>
 
     </div>
 
-    <script>
+    <ul id="taskList"></ul>
 
-        function addTask()
+</div>
+
+<script>
+
+function addTask()
+{
+    let task = document.getElementById("task").value;
+
+    if(task == "")
+    {
+        alert("Please enter task");
+        return;
+    }
+
+    let li = document.createElement("li");
+
+    let span = document.createElement("span");
+
+    span.innerHTML = task;
+
+    li.appendChild(span);
+
+    let div = document.createElement("div");
+
+    let update = document.createElement("button");
+    update.innerHTML = "Update";
+    update.className = "update";
+
+    update.onclick = function()
+    {
+        let newtask = prompt("Update Task", span.innerHTML);
+        if(newtask != "")
         {
-            var task=document.getElementById("task").value;
-
-            if(task=="")
-            {
-                alert("Please enter task");
-                return;
-            }
-
-            var li=document.createElement("li");
-
-            var span=document.createElement("span");
-
-            span.className="tasktext";
-
-            span.innerHTML=task;
-
-            li.appendChild(span);
-
-            var div=document.createElement("div");
-
-            div.className="buttons";
-
-            var update=document.createElement("button");
-
-            update.innerHTML="Update";
-
-            update.className="update";
-
-            update.onclick=function()
-            {
-                var newtask=prompt("Update Task",span.innerHTML);
-
-                if(newtask!="")
-                {
-                    span.innerHTML=newtask;
-                }
-            };
-
-            div.appendChild(update);
-
-            var del=document.createElement("button");
-
-            del.innerHTML="Delete";
-
-            del.className="delete";
-
-            del.onclick=function()
-            {
-                li.remove();
-            };
-
-            div.appendChild(del);
-
-            li.appendChild(div);
-
-            document.getElementById("taskList").appendChild(li);
-
-            document.getElementById("task").value="";
+            span.innerHTML = newtask;
         }
+    };
 
-    </script>
+    div.appendChild(update);
+
+    let del = document.createElement("button");
+    del.innerHTML = "Delete";
+    del.className = "delete";
+
+    del.onclick = function()
+    {
+        li.remove();
+    };
+
+    div.appendChild(del);
+
+    li.appendChild(div);
+
+    document.getElementById("taskList").appendChild(li);
+
+    document.getElementById("task").value = "";
+}
+
+</script>
 
 </body>
 </html>
