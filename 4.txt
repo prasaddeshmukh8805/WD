@@ -4,7 +4,6 @@
     <title>Employee Registration Form</title>
 
     <style>
-
         body{
             font-family: Arial;
             background:#e6e6e6;
@@ -53,17 +52,16 @@
             padding:10px;
             text-align:center;
         }
-
     </style>
 
     <script>
 
         function validate()
         {
-            var name = document.forms["empForm"]["name"].value;
-            var email = document.forms["empForm"]["email"].value;
-            var department = document.forms["empForm"]["department"].value;
-            var salary = document.forms["empForm"]["salary"].value;
+            let name = document.forms["empForm"]["name"].value;
+            let email = document.forms["empForm"]["email"].value;
+            let department = document.forms["empForm"]["department"].value;
+            let salary = document.forms["empForm"]["salary"].value;
 
             if(name=="" || email=="" || department=="" || salary=="")
             {
@@ -71,7 +69,8 @@
                 return false;
             }
 
-            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+           
+            let pattern = /@/;
 
             if(!email.match(pattern))
             {
