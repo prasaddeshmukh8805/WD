@@ -79,9 +79,9 @@
 
         function showProduct()
         {
-            var product=document.getElementById("product").value;
+            let product = document.getElementById("product").value;
 
-            document.getElementById("result").innerHTML=
+            document.getElementById("result").innerHTML =
             "Selected Product : " + product;
         }
 
@@ -105,57 +105,36 @@
             </tr>
 
             <tr>
-
                 <td>
                     <img src="https://m.media-amazon.com/images/I/71yzJoE7WlL.jpg">
                 </td>
-
                 <td>Smart Phone</td>
-
-                <td>₹20,000</td>
-
+                <td>Rs. 20,000</td>
                 <td>
-                    <a href="https://www.amazon.in" target="_blank">
-                        Buy Now
-                    </a>
+                    <a href="https://www.amazon.in" target="_blank">Buy Now</a>
                 </td>
-
             </tr>
 
             <tr>
-
                 <td>
                     <img src="https://m.media-amazon.com/images/I/61mpMH5TzkL.jpg">
                 </td>
-
                 <td>Laptop</td>
-
-                <td>₹55,000</td>
-
+                <td>Rs. 55,000</td>
                 <td>
-                    <a href="https://www.flipkart.com" target="_blank">
-                        Buy Now
-                    </a>
+                    <a href="https://www.flipkart.com" target="_blank">Buy Now</a>
                 </td>
-
             </tr>
 
             <tr>
-
                 <td>
                     <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL.jpg">
                 </td>
-
                 <td>Smart Watch</td>
-
-                <td>₹5,000</td>
-
+                <td>Rs. 5,000</td>
                 <td>
-                    <a href="https://www.amazon.in" target="_blank">
-                        Buy Now
-                    </a>
+                    <a href="https://www.amazon.in" target="_blank">Buy Now</a>
                 </td>
-
             </tr>
 
         </table>
@@ -163,18 +142,12 @@
         <h2>Select Product</h2>
 
         <select id="product">
-
             <option>Smart Phone</option>
-
             <option>Laptop</option>
-
             <option>Smart Watch</option>
-
         </select>
 
-        <button onclick="showProduct()">
-            Display Product
-        </button>
+        <button onclick="showProduct()">Display Product</button>
 
         <div id="result"></div>
 
