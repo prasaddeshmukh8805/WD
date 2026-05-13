@@ -90,13 +90,13 @@
 
         function validateForm()
         {
-            var name=document.getElementById("name").value;
+            let name=document.getElementById("name").value;
 
-            var email=document.getElementById("email").value;
+            let email=document.getElementById("email").value;
 
-            var mobile=document.getElementById("mobile").value;
+            let mobile=document.getElementById("mobile").value;
 
-            var plan=document.getElementById("plan").value;
+            let plan=document.getElementById("plan").value;
 
             if(name=="" || email=="" || mobile=="" || plan=="")
             {
@@ -104,11 +104,11 @@
                 return false;
             }
 
-           if(email.indexOf("@")==-1)
-   {
-               alert("Enter valid email");
-           return false;
-     }
+            if(email.indexOf("@")==-1)
+            {
+                alert("Enter valid email");
+                return false;
+            }
 
             if(mobile.length!=10)
             {
